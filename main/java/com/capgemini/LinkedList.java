@@ -90,9 +90,9 @@ public class LinkedList<K> {
 
 	public INode<K> search(K key) {
 		INode<K> temp = head;
-		while (temp != null && temp.getNext() != null) {
+		while (temp != null) {
 			if (temp.getKey().equals(key)) {
-				System.out.println("Element found!!");
+				//System.out.println("Element found!!");
 				return temp;
 			} else
 				temp = temp.getNext();
@@ -135,5 +135,10 @@ public class LinkedList<K> {
 	}
 
 	// search and remove element from the list and resize it
+	
+	@Override
+	public String toString() {
+		return "MyLinkedListNodes{" + head + "}";
+	}
 
 }
