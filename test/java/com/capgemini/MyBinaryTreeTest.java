@@ -15,4 +15,18 @@ public class MyBinaryTreeTest {
 		int size = myTree.size();
 		Assert.assertEquals(3, size);
 	}
+
+	@Test
+	public void given6Numbers_ShouldSearch63InTheTreeAndReturnTheSame() {
+		System.out.println("\nThis test method checks if the searched element is present in the tree.");
+		MyBinaryTree<Integer> myTree = new MyBinaryTree<>();
+		myTree.add(56);
+		myTree.add(30);
+		myTree.add(70);
+		myTree.add(63);
+		myTree.add(24);
+		myTree.add(90);
+		boolean result = myTree.searchRecursively(63);
+		Assert.assertEquals(true, result);
+	}
 }
