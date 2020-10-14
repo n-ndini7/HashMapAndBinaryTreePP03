@@ -2,13 +2,16 @@ package com.capgemini;
 
 import com.capgemini.MyBinaryNode;
 
-//UC2 - checks if all the elements are added to the tree using user defined size method
+//UC3 - performs search in a binary tree
 public class MyBinaryTree<K extends Comparable<K>> {
 
 	private MyBinaryNode<K> root;
+	private MyBinaryNode<K> searchedNode;
+	private MyBinaryNode<K> temp;
 
 	public void add(K key) {
 		this.root = this.addRecursively(root, key);
+		temp = root;
 	}
 
 	private MyBinaryNode<K> addRecursively(MyBinaryNode<K> current, K key) {
@@ -36,4 +39,20 @@ public class MyBinaryTree<K extends Comparable<K>> {
 
 	// returns size of the BST after adding the elements.
 
+	public boolean searchRecursively(K key) {
+
+		if (temp == null)
+			return false;
+		int result = temp.key.compareTo(key);
+		if (result == 0) {
+			return true;
+		} else if (result < 0) {
+			temp = root.right;
+			return searchRecursively(key);
+		} else {
+			temp = temp.left;
+			return searchRecursively(key);
+		}
+	}
+	// this method performs search in the BST
 }
